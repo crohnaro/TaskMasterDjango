@@ -109,6 +109,9 @@ STATIC_URL = '/static/'
 
 STATICFILES_DIRS = []
 
+
+LOGIN_REDIRECT_URL = '/task/'  # Substitua pelo caminho correto
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
