@@ -6,6 +6,17 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>teste</h1>
+    <div class="container">
+        <h1>Minhas Tarefas</h1>
+        <ul>
+            {% for task in tasks %}
+            <li>
+                <strong>{{ task.title }}</strong> - {{ task.due_date }} - {{ task.priority }}
+            </li>
+            {% empty %}
+            <p>Você ainda não possui tarefas cadastradas.</p>
+            {% endfor %}
+        </ul>
+    </div>
 </body>
 </html>

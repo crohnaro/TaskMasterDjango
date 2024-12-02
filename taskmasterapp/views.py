@@ -2,6 +2,9 @@ from django.contrib.auth import authenticate, login
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
+from .models import Task
+from .forms import TaskForm
 
 def login_view(request):
     if request.method == "POST":
@@ -20,7 +23,8 @@ def login_view(request):
     return render(request, 'login/index.html')
 
 def task_view(request):
-    return render(request, 'task/index.html')
+    tasks = Task.objects.filter(user=request.user)  # Filtra tarefas do usuário logado
+    return render(request, "task/index.html", {"tasks": tasks})
 
 
 def register_view(request):
@@ -43,3 +47,22 @@ def register_view(request):
             messages.error(request, f"Erro ao registrar o usuário: {e}")
             return redirect("register")
     return render(request, "register/index.html")
+
+@login_required
+def task_register(request):
+    if request.method == "POST":
+        # Obtém os dados do formulário
+        title = request.POST.get("title")
+        due_date = request.POST.get("due_date")
+        priority = request.POST.get("priority")
+
+        # Cria a tarefa e associa ao usuário logado
+        Task.objects.create(
+            user=request.user,  # Associando ao usuário logado
+            title=title,
+            due_date=due_date,
+            priority=priority,
+        )
+        
+        return redirect("task")
+    return render(request, "taskregister/index.html")
