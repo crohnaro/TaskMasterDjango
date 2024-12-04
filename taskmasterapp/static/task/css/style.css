@@ -1,0 +1,129 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+            url("https://i.pinimg.com/originals/74/79/77/747977dfedb099d3e9207b1a5bbd8563.jpg") no-repeat center center/cover;
+    background-color: gray;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+.container {
+    max-width: 9000px;
+    margin: 10px;
+    padding: 25px;
+    background: rgba(18, 18, 18, 0.9);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: #ffffff;
+}
+
+.container h1{
+    color: #ff9900;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+
+#task-input {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+#task-input input,
+#task-input select,
+#task-input button {
+    padding: 10px;
+    font-size: 1rem;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    background: #1e1e1e;
+    color: #fff;
+    transition: border 0.3s ease;
+}
+
+#task-input input::placeholder,
+#task-input select {
+    color: #757575;
+}
+
+#task-input input:focus,
+#task-input select:focus {
+    border: 2px solid #ff007a;
+}
+
+#task-input button {
+    background: linear-gradient(to right, #ff007a, #ff9900);
+    color: #fff;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#task-input button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(255, 0, 122, 0.7);
+}
+
+#show-tasks {
+    display: block;
+    margin: 10px auto 20px;
+    padding: 10px 20px;
+    background: linear-gradient(to right, #007bff, #0056b3);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#show-tasks:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(0, 123, 255, 0.7);
+}
+
+#task-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.task-item {
+    padding: 10px;
+    margin-bottom: 10px;
+    background: #1e1e1e;
+    border: 1px solid #757575;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+}
+
+.task-item button {
+    margin-left: 10px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #fff;
+}
+
+.edit-btn {
+    background: linear-gradient(to right, #ffc107, #e0a800);
+}
+
+.edit-btn:hover {
+    box-shadow: 0 0 15px rgba(255, 193, 7, 0.7);
+}
+
+.delete-btn {
+    background: linear-gradient(to right, #dc3545, #c82333);
+}
+
+.delete-btn:hover {
+    box-shadow: 0 0 15px rgba(220, 53, 69, 0.7);
+}

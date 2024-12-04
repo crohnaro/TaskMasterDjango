@@ -1,8 +1,11 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'task/css/style.css' %}">
     <title>Document</title>
 </head>
 <body>
@@ -12,6 +15,9 @@
             {% for task in tasks %}
             <li>
                 <strong>{{ task.title }}</strong> - {{ task.due_date }} - {{ task.priority }}
+
+                <a href="{% url 'edit_task' task.id %}" class="btn btn-edit">Alterar</a>
+                <a href="{% url 'delete_task' task.id %}" class="btn btn-delete" onclick="return confirm('Tem certeza que deseja remover esta tarefa?');">Remover</a>
             </li>
             {% empty %}
             <p>Você ainda não possui tarefas cadastradas.</p>
